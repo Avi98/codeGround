@@ -4,9 +4,13 @@ import App from './App';
 import './index.css';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import todoApp from './reducers/todo'
+import { rootReducer } from './reducers';
+// import todoApp from './reducers/todo'
 
-const store = createStore(todoApp)
+const store = createStore(rootReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+)
 ReactDOM.render(
   <Provider store={store}>
     <App />
